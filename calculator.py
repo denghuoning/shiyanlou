@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys,csv
 from collections import namedtuple
 
@@ -153,7 +154,7 @@ class IncomeTaxCalculator(object):
         for item in INCOME_TAX_QUICK_LOOKUP_TABLE:
             if taxable_part > item.start_point:
                 tax = taxable_part * item.tax_rate - item.quick_subtractor
-                return '{:.2f}'.format(tax), '{:.2f}'.format(real_income)
+                return '{:.2f}'.format(tax), '{:.2f}'.format(real_income - tax)
         return '0.00', '{:.2f}'.format(real_income)
 
     def calc_for_all_userdata(self):
